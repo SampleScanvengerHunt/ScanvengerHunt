@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Digital Scavenger Hunt</h2>
+  <form action="#" method="post" onsubmit="return validateForm()">
+    <input type="text" name="username" id="username" placeholder="Username" required>
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <input type="submit" value="Login">
+  </form>
+</div>
+
+<script>
+function validateForm() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    
+    var users = {
+        "user1": "password1",
+        "user2": "password2",
+        "user3": "password3",
+    };
+    
+    if (users[username] === password) {
+        alert("Login successful");
+        window.location.href = "IAV.html";
+        return false;
+    } else {
+        alert("Invalid username or password");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
+
