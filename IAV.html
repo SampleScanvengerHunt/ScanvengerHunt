@@ -1,10 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Image Audio Video tags in HTML</title>
-</head>
 <style>
-    body
-    {
+    body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -19,19 +18,35 @@
         color: white;
     }
 </style>
+</head>
 <body>
     <center>
-        <video height="500px" width="500" controls>
-        <source src="Deans Video compressed.mp4" type="video/mp4">
+        <video id="myVideo" height="500px" width="500" controls>
+            <source src="Deans Video compressed.mp4" type="video/mp4">
         </video><br>
         <hr>
-    
+        <div id="questions" style="display: none;">
+            <h2>Which is a Pirate's favorite programming Language?<br><br>
+            When you look in a mirror, who do you see?<br><br>
+            Without this special character your email will be lost<br>in the sea and won't reach its destiny.
+            </h2>
+        </div>
+    </center>
 
-        <h2>Which is a Pirate's favorite programming Language?<br><br>
-         When look in a mirror, who do you see?<br><br>
-        Without this special character your email will be lost<br>in the sea and wont reach its destiny.
-        </h2>
-            
+    <script>
+        var video = document.getElementById("myVideo");
+        var questionsDiv = document.getElementById("questions");
 
+        video.addEventListener("timeupdate", function() {
+            var currentTime = video.currentTime;
+            var duration = video.duration;
+            var remainingTime = duration - currentTime;
+
+            if (remainingTime <= 5) {
+                questionsDiv.style.display = "block";
+            }
+        });
+    </script>
 </body>
 </html>
+
