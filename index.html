@@ -59,6 +59,23 @@
   input[type="submit"]:hover {
     background-color: #000000;
   }
+  
+  .show-password-btn {
+    background-color: #1c0053;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+
+  .show-password-btn:hover {
+    background-color: #000000;
+  }
 </style>
 </head>
 <body>
@@ -68,6 +85,7 @@
     <input type="text" name="username" id="username" placeholder="Username" required>
     <input type="password" name="password" id="password" placeholder="Password" required>
     <input type="submit" value="Login">
+    <button type="button" class="show-password-btn" onclick="togglePasswordVisibility()">Show Password</button>
   </form>
 </div>
 
@@ -89,6 +107,15 @@ function validateForm() {
     } else {
         alert("Invalid username or password");
         return false;
+    }
+}
+
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
     }
 }
 </script>
